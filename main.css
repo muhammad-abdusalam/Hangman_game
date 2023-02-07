@@ -1,0 +1,270 @@
+:root {
+  --main-thickness: 4px;
+  --pics-color: #222;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: cursive;
+}
+/* Game Container */
+.container {
+  width: 1000px;
+  margin: 20px auto;
+}
+/* Game Info */
+.game-info {
+  display: flex;
+}
+.game-info .g-name {
+  flex: 1;
+}
+/* Category */
+.game-info .cate {
+  flex: 1;
+  text-align: right;
+}
+.game-info .cate span {
+  text-transform: capitalize;
+  color: #e91e63;
+  font-weight: bold;
+}
+.row {
+  display: flex;
+}
+/* Hangman Picture */
+.row .picture-box {
+  flex: 1;
+  background-color: #f8f8f8;
+  height: 324px;
+  padding: 20px;
+}
+/* Draw The Picture When Wrong Attempts */
+.row .picture-box.wrong-1 .picture {
+  display: block;
+}
+.row .picture-box.wrong-2 .stand {
+  display: block;
+}
+.row .picture-box.wrong-3 .hang {
+  display: block;
+}
+.row .picture-box.wrong-4 .rope {
+  display: block;
+}
+.row .picture-box.wrong-5 .m-head {
+  display: block;
+}
+.row .picture-box.wrong-6 .m-body {
+  display: block;
+}
+.row .picture-box.wrong-7 .m-hands {
+  display: block;
+}
+.row .picture-box.wrong-8 .m-legs {
+  display: block;
+}
+.picture-box .picture {
+  width: 60px;
+  height: 284px;
+  margin: 0 auto;
+  border-bottom: var(--main-thickness) solid var(--pics-color);
+  position: relative;
+  top: 0;
+  left: -60px;
+  display: none;
+}
+.picture .stand {
+  position: absolute;
+  width: var(--main-thickness);
+  height: 100%;
+  background-color: var(--pics-color);
+  top: 0;
+  left: 50%;
+  margin-left: -2px;
+  display: none;
+}
+.picture .hang {
+  display: none;
+}
+.picture .hang::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: var(--main-thickness);
+  background-color: var(--pics-color);
+  top: 10px;
+  left: 20px;
+}
+.picture .hang::after {
+  content: "";
+  position: absolute;
+  width: var(--main-thickness);
+  height: 25px;
+  background-color: var(--pics-color);
+  top: 10px;
+  left: 120px;
+}
+.picture .rope {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: var(--main-thickness) dashed #9f7b61;
+  left: 120px;
+  top: 34px;
+  margin-left: -35px;
+  display: none;
+}
+/* Man Picture */
+/* Man Head */
+.picture .man .m-head {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: var(--main-thickness) solid var(--pics-color);
+  border-radius: 50%;
+  top: 44px;
+  left: 120px;
+  margin-left: -25px;
+  display: none;
+}
+/* Man Body */
+.picture .man .m-body {
+  position: absolute;
+  width: var(--main-thickness);
+  background-color: var(--pics-color);
+  height: 100px;
+  top: 90px;
+  left: 120px;
+  display: none;
+}
+/* Man Hands */
+.picture .man .m-hands {
+  display: none;
+}
+.picture .man .m-hands::before,
+.picture .man .m-hands::after {
+  content: "";
+  position: absolute;
+  width: 45px;
+  background-color: var(--pics-color);
+  height: var(--main-thickness);
+  top: 110px;
+}
+.picture .man .m-hands::before {
+  left: 78px;
+  transform: rotate(25deg);
+}
+.picture .man .m-hands::after {
+  left: 121px;
+  transform: rotate(-25deg);
+}
+/* Man Legs */
+.picture .man .m-legs {
+  display: none;
+}
+.picture .man .m-legs::before,
+.picture .man .m-legs::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  background-color: var(--pics-color);
+  height: var(--main-thickness);
+  top: 202px;
+}
+.picture .man .m-legs::before {
+  left: 66px;
+  transform: rotate(-35deg);
+}
+.picture .man .m-legs::after {
+  left: 117px;
+  transform: rotate(35deg);
+}
+.row .letters {
+  flex: 1;
+  background-color: #f8f8f8;
+  height: 324px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.row .letters.finished {
+  pointer-events: none;
+}
+.letters .letter-box {
+  background-color: #009688;
+  color: white;
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  margin: 5px;
+  font-size: 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  user-select: none;
+}
+.letters .letter-box.clicked {
+  background-color: var(--pics-color);
+  opacity: 20%;
+  pointer-events: none;
+}
+.container .guessed-letters {
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  padding: 20px;
+  user-select: none;
+}
+.container .guessed-letters span {
+  width: 60px;
+  height: 60px;
+  display: block;
+  background-color: #f0f0f0;
+  border-bottom: var(--main-thickness) solid var(--pics-color);
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 60px;
+  font-size: 40px;
+}
+.container .guessed-letters span.has-space {
+  background: none;
+  border-bottom: none;
+}
+/* Game End */
+.popup-fail {
+  font-size: 35px;
+  font-weight: bold;
+  background: #222222c2;
+  color: #e91e63;
+  width: 600px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  padding: 40px 50px;
+}
+.popup-success {
+  font-size: 55px;
+  font-weight: bold;
+  background: #222222c2;
+  color: #c2ef69;
+  width: 600px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  padding: 40px 50px;
+}

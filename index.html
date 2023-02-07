@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <!-- Game Container -->
+    <div class="container">
+      <div class="game-info">
+        <div class="g-name">HangMan</div>
+        <div class="cate">Category: <span>programming</span></div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="picture-box">
+          <div class="picture">
+            <div class="stand"></div>
+            <div class="hang"></div>
+            <div class="rope"></div>
+            <!-- Man Picture -->
+            <div class="man">
+              <div class="m-head"></div>
+              <div class="m-body"></div>
+              <div class="m-hands"></div>
+              <div class="m-legs"></div>
+            </div>
+          </div>
+        </div>
+        <div class="letters"></div>
+      </div>
+      <hr />
+      <div class="guessed-letters"></div>
+    </div>
+    <!-- Game Sounds -->
+    <audio
+      class="background-sound"
+      src="audio/background.mp3"
+      type="audio.mpeg"
+      loop
+    ></audio>
+    <audio class="success" src="audio/success.mp3" type="audio.mpeg"></audio>
+    <audio class="failure" src="audio/wrong.mp3" type="audio.mpeg"></audio>
+    <!-- Main JS File -->
+    <script src="main.js"></script>
+  </body>
+</html>
