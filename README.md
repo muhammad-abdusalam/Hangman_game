@@ -1,2 +1,15 @@
 # Hangman_game
-This is my try to create The hangman game using only (vanilla javascript).
+
+![Game](./screenshot/game.png)
+
+- **Live site**: https://muhammad-abdusalam.github.io/Hangman_game/
+
+### Built with ⚒️
+
+- HTML
+- CSS
+- JS
+
+### Author
+
+- Linkedin: [@muhammad-abdusalam](https://www.linkedin.com/in/muhammad-abdusalam)
